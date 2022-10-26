@@ -6,7 +6,7 @@ const {
     createPizza,
     updatePizza,
     deletePizza
-} = require('../../controllers/pizza-controllers');
+} = require('../../controllers/pizza-controller');
 
 router
     .route('/')
@@ -14,9 +14,9 @@ router
     .post(createPizza);
 
 router
-    .router('/:id')
+    .route('/:id')
     .get(getPizzaById)
     .put(updatePizza)
     .delete(deletePizza);
 
-module.exports = router();    
+module.exports = router;    
