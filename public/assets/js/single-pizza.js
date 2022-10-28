@@ -1,4 +1,4 @@
-const { post } = require("../../../routes/api");
+//const { post } = require("../../../routes/api");
 
 const $backBtn = document.querySelector('#back-btn');
 const $pizzaName = document.querySelector('#pizza-name');
@@ -20,6 +20,7 @@ function getPizza() {
       if (!response.ok) {
         throw new Error({ message: 'Something went wrong!'} );
       }
+
       return response.json();
     })
     .then(printPizza)
@@ -149,6 +150,7 @@ function handleNewReplySubmit(event) {
   }
 
   const formData = { writtenBy, replyBody };
+
   fetch(`/api/comments/${pizzaId}/${commentId}`, {
     method: 'PUT',
     headers: {
@@ -176,7 +178,8 @@ $backBtn.addEventListener('click', function() {
   window.history.back();
 });
 
-getPizza();
 
 $newCommentForm.addEventListener('submit', handleNewCommentSubmit);
 $commentSection.addEventListener('submit', handleNewReplySubmit);
+
+getPizza();

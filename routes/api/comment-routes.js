@@ -6,14 +6,16 @@ const {
     removeReply 
 } = require('../../controllers/comment-controller');
 
-router
-    .route('/:pizzaId')
+router.route('/:pizzaId')
     .post(addComment);
 
 router
-    .route('/:pizzaId/:commentId/:replyId')
+    .route('/:pizzaId/:commentId')
     .put(addReply)
-    .delete(removeReply)
     .delete(removeComment);
+
+router.route('/:pizzaId/:commentId/:replyId')
+    .delete(removeReply);
+
 
 module.exports = router;
